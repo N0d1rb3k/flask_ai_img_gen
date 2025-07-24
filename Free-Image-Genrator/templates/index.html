@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎨 Free Image Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>🎨 Free Image Generator</h1>
+      <p>Generate beautiful AI images using your imagination</p>
+    </header>
+
+    <section class="form-card">
+      <form method="POST">
+        <div class="form-group">
+          <label for="prompt">Enter Your Prompt</label>
+          <textarea id="prompt" name="prompt" placeholder="Describe the image you want..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="model">Select Model</label>
+          <select id="model" name="model" required>
+            <option value="" disabled selected>Choose a model</option>
+            <option value="MoneyPrinterTurbo">💸 MoneyPrinterTurbo</option>
+            <option value="Anime Character Generator">🎎 Anime Character Generator</option>
+            <option value="Jackey">📜 Jackey</option>
+            <option value="Polynate">🎨 Polynate</option>
+            <option value="Memed">😂 Memed</option>
+            <option value="Elixpo-Art">🎭 Elixpo-Art</option>
+            <option value="MIDIjourney">🎼 MIDIjourney</option>
+            <option value="TurboReel">🎞 TurboReel</option>
+            <option value="StoryWeaver">📖 StoryWeaver</option>
+            <option value="AI PPT Maker">🎤 AI PPT Maker</option>
+            <option value="flux">⚡ flux</option>
+            <option value="turbo">🚀 turbo</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="theme">Select Theme</label>
+          <select id="theme" name="theme" required>
+            <option value="" disabled selected>Choose a theme</option>
+            <option value="realistic landscape">Realistic Landscape</option>
+            <option value="anime girl">Anime Girl</option>
+            <option value="fantasy city">Fantasy City</option>
+            <option value="3D robot">3D Robot</option>
+            <option value="cyberpunk street">Cyberpunk Street</option>
+            <option value="pixel art dragon">Pixel Art Dragon</option>
+            <option value="cartoon dog">Cartoon Dog</option>
+            <option value="space station">Space Station</option>
+            <option value="ancient ruins">Ancient Ruins</option>
+          </select>
+        </div>
+
+        <button type="submit">Generate 🔥</button>
+      </form>
+    </section>
+
+    {% if image_path %}
+    <section class="result">
+      <h2>Generated Image</h2>
+      <img src="{{ image_path }}" alt="AI generated image" onclick="this.style.cursor='progress'; setTimeout(() => this.style.cursor='pointer', 3000)">
+    </section>
+    {% endif %}
+
+    <footer>
+      &copy; {{ year or '2025' }} Free Image Generator. Built with AI.
+    </footer>
+  </main>
+</body>
+</html>
